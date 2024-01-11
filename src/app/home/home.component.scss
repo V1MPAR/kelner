@@ -1,0 +1,22 @@
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  justify-content: center;
+  div {
+    width: 130px;
+    height: 130px;
+    background: black;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    h2 {
+      text-align: center;
+    }
+  }
+}

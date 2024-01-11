@@ -1,0 +1,25 @@
+nav {
+  display: grid;
+  padding: 0 20px;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(33.33%, 1fr));
+  h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    color: black;
+    margin: 0;
+    text-align: center;
+  }
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

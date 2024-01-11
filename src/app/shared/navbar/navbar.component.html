@@ -1,0 +1,13 @@
+<nav>
+  <div class="left">
+    <button mat-icon-button *ngIf="checkVisibilityFor('arrow_back')" (click)="getBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <h1>kelner.</h1>
+  <div class="right">
+    <button mat-icon-button *ngIf="checkVisibilityFor('shopping_cart')">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </div>
+</nav>

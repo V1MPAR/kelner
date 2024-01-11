@@ -1,0 +1,18 @@
+.take-order {
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  height: 100%;
+  h2 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+  }
+  div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    width: 100%;
+    gap: 20px;
+  }
+}

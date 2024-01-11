@@ -1,0 +1,14 @@
+<section class="home">
+  <div (click)="redirectTo('take-order')">
+    <h2>Przyjmij zamówienie</h2>
+  </div>
+  <div (click)="redirectTo('orders?filterBy=current')">
+    <h2>Obecne zamówienia</h2>
+  </div>
+  <div (click)="redirectTo('orders?filterBy=closed')">
+    <h2>Zamknięte rachunki</h2>
+  </div>
+  <div (click)="redirectTo('settings')">
+    <h2>Ustawienia</h2>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<section class="take-order">
+  <app-loader *ngIf="!dishesLoaded"></app-loader>
+  <div *ngIf="dishesLoaded">
+    @for (dish of dishes; track dish) {
+      <app-take-order-item [dish]="dish"></app-take-order-item>
+    } @empty {
+      <h2>
+        Ojoj... nie ma żadnych potraw do wyświetlenia.<br/>Czas dodać nowe potrawy!
+      </h2>
+    }
+  </div>
+</section>
