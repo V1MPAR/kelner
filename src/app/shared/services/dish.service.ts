@@ -16,4 +16,20 @@ export class DishService extends BaseApiService {
     return this.get('/Dish/ReadAll');
   }
 
+  read(id: number): Observable<DefaultApiResponse<DishModel>> {
+    return this.get('/Dish/Read?id=' + id);
+  }
+
+  add(body: DishModel): Observable<DefaultApiResponse<DishModel>> {
+    return this.post('/Dish', body);
+  }
+
+  update(body: DishModel): Observable<DefaultApiResponse<DishModel>> {
+    return this.put('/Dish', body);
+  }
+
+  remove(id: number): Observable<DefaultApiResponse<any>> {
+    return this.delete(`/Dish?id=${id}`);
+  }
+
 }

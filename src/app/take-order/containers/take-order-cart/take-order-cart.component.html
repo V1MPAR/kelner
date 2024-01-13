@@ -1,0 +1,32 @@
+<section class="take-order-cart">
+  <ul class="list">
+    @for (item of order; track item) {
+      <li>
+        <div class="inner">
+          <span [style]="{'background': item.dish.tileColor}"></span>
+          <div class="dish-info">
+            <h3>{{ item.dish.name }}</h3>
+            <p>{{ item.count }} x {{ item.dish.price }} PLN = {{ sumDishPriceByCount(item.dish, item.count) }} PLN</p>
+          </div>
+        </div>
+        <div class="inner">
+          <button mat-icon-button (click)="decrementCount(item)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <h3>{{ item.count }}</h3>
+          <button mat-icon-button (click)="incrementCount(item)">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-icon-button class="delete" (click)="deleteDish(item.dish)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <h2>
+        Zamówienie jest puste.<br />
+        Wróć z powrotem, aby dodać potrawy do zamówienia!
+      </h2>
+    }
+  </ul>
+</section>

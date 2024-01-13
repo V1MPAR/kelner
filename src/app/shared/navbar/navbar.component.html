@@ -4,10 +4,19 @@
       <mat-icon>arrow_back</mat-icon>
     </button>
   </div>
-  <h1>kelner.</h1>
+  <h1 (click)="goToHome()">kelner.</h1>
   <div class="right">
-    <button mat-icon-button *ngIf="checkVisibilityFor('shopping_cart')">
+    <button mat-icon-button *ngIf="checkVisibilityFor('shopping_cart')" (click)="goToCart()">
       <mat-icon>shopping_cart</mat-icon>
     </button>
+    <button mat-icon-button *ngIf="checkVisibilityFor('add_dish')" (click)="addDish()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <span *ngIf="checkVisibilityFor('send_order')">
+      {{ calculateOrderCost() }} PLN
+      <button mat-icon-button (click)="sendOrder()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </span>
   </div>
 </nav>

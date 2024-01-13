@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Zamówienie #{{ data.order.id }}</h1>
+<div mat-dialog-content>
+  Potrawy:
+  <app-loader *ngIf="!dishesLoaded"></app-loader>
+  <ul class="list" *ngIf="dishesLoaded">
+    @for (dish of dishes; track dish) {
+      <li>
+        <div class="inner">
+          <span [style]="{'background': dish.tileColor}"></span>
+          <div class="dish-info">
+            <h3>{{ dish.name }}</h3>
+            <p>{{ dish.count }} x {{ dish.price }} PLN = {{ sumDishPriceByCount(dish.price, dish.count) }} PLN</p>
+          </div>
+        </div>
+      </li>
+    } @empty {
+      <h2>
+        Ojoj... nie ma żadnych potraw do wyświetlenia.
+      </h2>
+    }
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Zamknij</button>
+</div>

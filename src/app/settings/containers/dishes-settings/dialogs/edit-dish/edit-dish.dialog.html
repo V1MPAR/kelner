@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Edycja potrawy {{ data.dish.name }} (#{{ data.dish.id }})</h1>
+<section mat-dialog-content class="loader" *ngIf="!dishLoaded">
+  <app-loader></app-loader>
+</section>
+<div mat-dialog-content *ngIf="dishLoaded">
+  <form [formGroup]="editDishForm">
+    <div class="form-control-wrapper">
+      <mat-form-field>
+        <mat-label>Nazwa potrawy</mat-label>
+        <input matInput type="text" placeholder="np. Zupa pomidorowa" formControlName="name" required />
+        @if (editDishForm.get('name')!.invalid) {
+          <mat-error>{{getErrorMessage('name')}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="form-control-wrapper">
+      <mat-form-field>
+        <mat-label>Cena</mat-label>
+        <input matInput type="number" step="0.01" formControlName="price" />
+        @if (editDishForm.get('price')!.invalid) {
+          <mat-error>{{getErrorMessage('price')}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="form-control-wrapper">
+      <mat-form-field>
+        <mat-label>Opis potrawy</mat-label>
+        <textarea matInput placeholder="np. Soczyste pomidory zanurzone w wodzie" formControlName="description" rows="3"></textarea>
+        @if (editDishForm.get('description')!.invalid) {
+          <mat-error>{{getErrorMessage('description')}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <h3>Kolor kafelka</h3>
+      <ul class="tile-colors">
+        <li *ngFor="let color of tileColors | keyvalue" [class]="{'active': selectedTileColor == color.value}" [style]="{'background': color.value, 'border-color': color.value}" (click)="selectTileColor(color.value)"></li>
+      </ul>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Anuluj</button>
+  <button mat-flat-button color="primary" (click)="editDish()">Edytuj potrawę</button>
+</div>

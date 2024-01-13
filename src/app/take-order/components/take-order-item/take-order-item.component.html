@@ -1,4 +1,5 @@
 <div [style]="{'background': dish.tileColor}">
   <h3>{{ dish.name }}</h3>
-  <p>{{ dish.price }} PLN</p>
+  <p *ngIf="count === 0">{{ dish.price }} PLN</p>
+  <p *ngIf="count > 0">{{ count }} x {{ dish.price }} PLN</p>
 </div>

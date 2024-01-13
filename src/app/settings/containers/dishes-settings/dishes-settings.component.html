@@ -1,21 +1,30 @@
-<section class="dishes-settings">
+<section class="loader" *ngIf="!dishesLoaded">
+  <app-loader></app-loader>
+</section>
+<section class="dishes-settings" *ngIf="dishesLoaded">
   <ul class="list">
+    @for (dish of dishes; track dish) {
     <li>
       <div class="inner">
-        <span></span>
+        <span [style]="{'background': dish.tileColor}"></span>
         <div class="dish-info">
-          <h3>Papieska kremówka</h3>
-          <p>17.50 PLN</p>
+          <h3>{{ dish.name }}</h3>
+          <p>{{ dish.price }} PLN</p>
         </div>
       </div>
-      <div>
-        <button mat-icon-button>
+      <div class="inner">
+        <button mat-icon-button (click)="editDish(dish)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button class="delete">
+        <button mat-icon-button class="delete" (click)="deleteDish(dish)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
     </li>
+    } @empty {
+      <h2>
+        Ojoj... nie ma żadnych potraw do wyświetlenia.<br/>Czas dodać nowe potrawy!
+      </h2>
+    }
   </ul>
 </section>

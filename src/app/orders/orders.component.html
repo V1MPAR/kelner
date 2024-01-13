@@ -1,0 +1,29 @@
+<section class="loader" *ngIf="!ordersLoaded">
+  <app-loader></app-loader>
+</section>
+<section class="orders" *ngIf="ordersLoaded">
+  <ul class="list">
+    @for (order of orders; track order) {
+      <li>
+        <div class="inner">
+          <div class="order-info">
+            <h3>#{{ order.id }}</h3>
+            <p>{{ order.count }} potrawy, {{ order.cost }} PLN</p>
+          </div>
+        </div>
+        <div class="inner">
+          <button mat-icon-button (click)="showOrder(order)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button (click)="closeOrder(order)">
+            <mat-icon>done</mat-icon>
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <h2>
+        Brak otwartych zamówień.
+      </h2>
+    }
+  </ul>
+</section>

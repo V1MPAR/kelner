@@ -1,0 +1,32 @@
+.list {
+  h2 {
+    text-align: center;
+  }
+  li {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 5px 15px;
+    .inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .dish-info {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+    }
+    h3 {
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}

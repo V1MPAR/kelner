@@ -3,7 +3,7 @@ import { Observable } from 'rxjs'
 import { environment } from '../../../environments/environment'
 
 export interface DefaultApiResponse<T> {
-  value: T
+  value: any,
   formatters: any[],
   contentTypes: any[],
   declaredType: any,
@@ -60,7 +60,7 @@ export abstract class BaseApiService {
     return this.http.get<any>(apiUrl + url, options)
   }
 
-  protected delete(
+  delete(
     url: string,
     options: any = null,
     apiUrl: string = environment.apiUrl
